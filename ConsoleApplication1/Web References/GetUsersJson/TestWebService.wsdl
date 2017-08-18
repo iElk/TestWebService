@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/TestWebService/TestWebService" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/TestWebService/TestWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/TestWebService/TestWebService">
+      <s:element name="GetUsersXml">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUsersXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersXmlResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="website" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="company" type="tns:Company" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="suite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="zipcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="geo" type="tns:Geo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Geo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="lat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="lng" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Company">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="catchPhrase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bs" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserByIdXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByIdXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByIdXmlResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumsXml">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAlbumsXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumsXmlResult" type="tns:ArrayOfAlbum" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAlbum">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Album" nillable="true" type="tns:Album" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Album">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAlbumByIdXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumByIdXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumByIdXmlResult" type="tns:Album" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumsByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumsByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumsByUserIdResult" type="tns:ArrayOfAlbum" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersJson">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUsersJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByIdJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByIdJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByIdJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumsJson">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAlbumsJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumsJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumByIdJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumByIdJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumByIdJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumsByUserJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlbumsByUserJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlbumsByUserJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUsersXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersXml" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByIdXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByIdXml" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByIdXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByIdXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumsXml" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumsXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumByIdXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumByIdXml" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumByIdXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumByIdXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumsByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumsByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersJson" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByIdJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByIdJson" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByIdJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByIdJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumsJson" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumsJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumByIdJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumByIdJson" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumByIdJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumByIdJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsByUserJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlbumsByUserJson" />
+  </wsdl:message>
+  <wsdl:message name="GetAlbumsByUserJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlbumsByUserJsonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TestWebServiceSoap">
+    <wsdl:operation name="GetUsersXml">
+      <wsdl:input message="tns:GetUsersXmlSoapIn" />
+      <wsdl:output message="tns:GetUsersXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByIdXml">
+      <wsdl:input message="tns:GetUserByIdXmlSoapIn" />
+      <wsdl:output message="tns:GetUserByIdXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsXml">
+      <wsdl:input message="tns:GetAlbumsXmlSoapIn" />
+      <wsdl:output message="tns:GetAlbumsXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumByIdXml">
+      <wsdl:input message="tns:GetAlbumByIdXmlSoapIn" />
+      <wsdl:output message="tns:GetAlbumByIdXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsByUserId">
+      <wsdl:input message="tns:GetAlbumsByUserIdSoapIn" />
+      <wsdl:output message="tns:GetAlbumsByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersJson">
+      <wsdl:input message="tns:GetUsersJsonSoapIn" />
+      <wsdl:output message="tns:GetUsersJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByIdJson">
+      <wsdl:input message="tns:GetUserByIdJsonSoapIn" />
+      <wsdl:output message="tns:GetUserByIdJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsJson">
+      <wsdl:input message="tns:GetAlbumsJsonSoapIn" />
+      <wsdl:output message="tns:GetAlbumsJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumByIdJson">
+      <wsdl:input message="tns:GetAlbumByIdJsonSoapIn" />
+      <wsdl:output message="tns:GetAlbumByIdJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsByUserJson">
+      <wsdl:input message="tns:GetAlbumsByUserJsonSoapIn" />
+      <wsdl:output message="tns:GetAlbumsByUserJsonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestWebServiceSoap" type="tns:TestWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsersXml">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUsersXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByIdXml">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUserByIdXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsXml">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumByIdXml">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumByIdXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsByUserId">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersJson">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUsersJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByIdJson">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUserByIdJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsJson">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumByIdJson">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumByIdJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsByUserJson">
+      <soap:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsByUserJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TestWebServiceSoap12" type="tns:TestWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsersXml">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUsersXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByIdXml">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUserByIdXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsXml">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumByIdXml">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumByIdXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsByUserId">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersJson">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUsersJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByIdJson">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetUserByIdJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsJson">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumByIdJson">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumByIdJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlbumsByUserJson">
+      <soap12:operation soapAction="http://tempuri.org/TestWebService/TestWebService/GetAlbumsByUserJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestWebService">
+    <wsdl:port name="TestWebServiceSoap" binding="tns:TestWebServiceSoap">
+      <soap:address location="http://localhost:55813/TestWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TestWebServiceSoap12" binding="tns:TestWebServiceSoap12">
+      <soap12:address location="http://localhost:55813/TestWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
